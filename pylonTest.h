@@ -189,7 +189,6 @@ protected:
         try{
             // Start the processing.
             recipe.Start();
-
             while(!isInterruptionRequested()){
                 if(resultCollector.GetWaitObject().Wait(5000)){
                     QMutexLocker lockImage(&imageLock);
@@ -222,8 +221,8 @@ signals:
     void grabbed();
 
 private:
-    QString imagePath = QDir::currentPath() +"/./../vToolsExample/barcode/";
-    QString recipePath = QDir::currentPath() +"/./../vToolsExample/barcode.precipe";
+    QString imagePath = QDir::currentPath() +"/barcode/";
+    QString recipePath = QDir::currentPath() +"/barcode.precipe";
     QImage currentImage;
     QString currentValue;
     mutable QMutex imageLock;
